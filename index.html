@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clientes GPT</title>
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Bienvenido a Jadrix Servis</h1>
+  </header>
+
+  <!-- SELECTOR DE MESES -->
+  <section id="month-selector"></section>
+
+  <!-- MENÚ PRINCIPAL -->
+  <nav class="nav-home">
+    <button id="undo-btn" class="btn undo" disabled>Deshacer</button>
+    <button id="redo-btn" class="btn redo" disabled>Rehacer</button>
+    <button class="btn nav" onclick="scrollToSection('cobro-anticipado')">Cobro anticipado</button>
+    <button class="btn nav" onclick="scrollToSection('cobros-pendientes')">Cobros pendientes</button>
+    <button class="btn nav" onclick="scrollToSection('formulario')">Registrar cliente</button>
+    <button class="btn nav" onclick="scrollToSection('servicio20')">Cuentas S/20</button>
+    <button class="btn nav" onclick="scrollToSection('servicio10')">Cuentas S/10</button>
+  </nav>
+
+  <main class="container">
+    <!-- 0) Cobro anticipado -->
+    <section id="cobro-anticipado" class="card">
+      <h2>Cobro anticipado (2 días antes)</h2>
+      <ul id="lista-anticipados">
+        <li>– No hay avisos –</li>
+      </ul>
+    </section>
+
+    <!-- 1) Cobros pendientes -->
+    <section id="cobros-pendientes" class="card">
+      <h2>Cobros pendientes (hoy)</h2>
+      <ul id="lista-pendientes">
+        <li>– No hay cobros –</li>
+      </ul>
+    </section>
+
+    <!-- 2) Formulario -->
+    <section id="formulario" class="card">
+      <h2>Registrar nuevo cliente</h2>
+      <form id="form-cliente">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" required/>
+        </div>
+        <div class="campo">
+          <label for="cuenta">Cuenta (email/grupo)</label>
+          <input type="text" id="cuenta" required/>
+        </div>
+        <div class="campo three-cols">
+          <div>
+            <label for="servicio">Servicio</label>
+            <select id="servicio">
+              <option value="10">10 S/</option>
+              <option value="20">20 S/</option>
+            </select>
+          </div>
+          <div>
+            <label for="duracion">Duración (meses)</label>
+            <input type="number" id="duracion" value="1" min="1" required/>
+          </div>
+          <div>
+            <label for="fechaInicio">Fecha inicio</label>
+            <input type="date" id="fechaInicio" required/>
+          </div>
+        </div>
+        <button type="submit" class="btn primary">Guardar Cliente</button>
+      </form>
+    </section>
+
+    <!-- 3) Cuentas de 20 S/ -->
+    <section id="servicio20" class="card">
+      <h2>Cuentas de 20 S/</h2>
+      <div id="tabla20"></div>
+    </section>
+
+    <!-- 4) Cuentas de 10 S/ -->
+    <section id="servicio10" class="card">
+      <h2>Cuentas de 10 S/</h2>
+      <div id="tabla10"></div>
+    </section>
+  </main>
+
+  <script src="js/clientes.js"></script>
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

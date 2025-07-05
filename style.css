@@ -1,0 +1,228 @@
+/* ========== VARIABLES ========== */
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --primary: #00d1ff;
+  --secondary: #ff4081;
+  --accent: #00e676;
+  --text: #e0e0e0;
+  --soft-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* ========== RESET BÁSICO ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== BODY & TIPOGRAFÍA ========== */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== HEADER ========== */
+header {
+  background: var(--surface);
+  padding: 1.5rem 0;
+  text-align: center;
+  box-shadow: 0 2px 6px var(--soft-shadow);
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ========== CARD ========== */
+.card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px var(--soft-shadow);
+}
+
+/* ========== SELECTOR DE MESES ========== */
+#month-selector {
+  text-align: center;
+  margin: 1rem 0;
+}
+#month-selector button {
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  color: var(--text);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+#month-selector button.active,
+#month-selector button:hover {
+  background: var(--primary);
+  color: var(--bg);
+}
+
+/* ========== NAVEGACIÓN PRINCIPAL ========== */
+.nav-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.nav-home .btn {
+  font-size: 0.9rem;
+}
+
+/* ========== BOTONES GENERALES ========== */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* variantes */
+.btn.primary {
+  background: var(--primary);
+  color: var(--bg);
+}
+.btn.primary:hover:not(:disabled) {
+  background: #00a0cc;
+}
+
+.btn.undo {
+  background: var(--secondary);
+  color: var(--bg);
+}
+.btn.redo {
+  background: var(--accent);
+  color: var(--bg);
+}
+.btn.nav {
+  background: var(--surface);
+  color: var(--text);
+}
+.btn.nav:hover:not(:disabled) {
+  background: var(--primary);
+  color: var(--bg);
+}
+
+/* ========== FORMULARIO ========== */
+form .campo {
+  margin-bottom: 1rem;
+}
+form .campo label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+form .campo input,
+form .campo select {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--surface);
+  border-radius: 4px;
+}
+form .three-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* ========== LISTAS ========== */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+ul li {
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+/* ========== TABLAS ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+thead {
+  background: rgba(255, 255, 255, 0.1);
+}
+th, td {
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* totales */
+.total-row td {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ========== BOTONES DE ACCIÓN EN TABLA ========== */
+.delete-btn,
+.edit-btn,
+.cobrar-btn,
+.cobrado-btn {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  margin: 0 0.2rem;
+  transition: background 0.3s;
+}
+.delete-btn {
+  background: #e74c3c; color: #fff;
+}
+.delete-btn:hover { background: #c0392b; }
+.edit-btn {
+  background: #f1c40f; color: #000;
+}
+.edit-btn:hover { background: #d4ac0d; }
+.cobrar-btn {
+  background: #00e676; color: #000;
+}
+.cobrar-btn:hover { background: #00c853; }
+.cobrado-btn {
+  background: #ff5252; color: #fff;
+}
+.cobrado-btn:hover { background: #ff1744; }
